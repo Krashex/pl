@@ -1,7 +1,7 @@
 # Считает за пользователя
 start = int(input('Enter start of counting '))
-end = int(input("Enter end of counting 1"))
-interval = (int(input("Enter interval 1")))
+end = int(input("Enter end of counting"))
+interval = (int(input("Enter interval")))
 
 if start > end:
     if interval > start - end:
