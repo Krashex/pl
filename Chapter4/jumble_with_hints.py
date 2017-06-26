@@ -11,7 +11,10 @@ WORDS = ("python", "jumble", "easy", "difficult", "answer", "xylophone")
 word = random.choice(WORDS)
 # create a variable to use later to see if the guess is correct
 correct = word
-points = 10
+start = 0
+end = 3
+HINTS_COUNT = 3
+points = 20
 # create a jumbled version of the word
 jumble = ""
 while word:
@@ -22,7 +25,7 @@ while word:
 # start the game
 print(
     """
-               Welcome to Word Jumble!
+               Welcom1e to Word Jumble!
 
        Unscramble the letters to make a word.
     (Press the enter key at the prompt to quit.)
@@ -31,15 +34,23 @@ print(
 print("The jumble is:", jumble)
 
 guess = input("\n(If you don't have any guesses type HINT)Your guess: ")
-if guess == "HINT":
-    print(correct[0:3])
-    guess = input("Your guess: ")
-while guess != correct and guess != "":
-    print("Sorry, that's not it.")
-    guess = input("Your guess: ")
-if guess == correct:
-    print("That's it!  You guessed it!\n")
-    points += 10
+while HINTS_COUNT != 0:
+    if guess == "HINT":
+        print(correct[start:end])
+        start = end
+        end += 2
+        HINTS_COUNT -= 1
+        guess = input('Your guess ')
+        if guess == correct:
+            print("That's it!  You guessed it!\n")
+            points -= 10
+            break
+    elif guess == correct:
+        print("That's it!  You guessed it!\n")
+        break
+    else:
+        print("Sorry, that's not it.")
+        guess = input("Your guess: ")
 
 print("Thanks for playing.You have earned", points, "points")
 
