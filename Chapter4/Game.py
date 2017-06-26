@@ -4,7 +4,7 @@ WORDS = ("python", "game", "name", 'again', "interest", "house", "letter", "less
 word = random.choice(WORDS)
 tries = 0
 count_letters = len(word)
-print("Try to guess what the word is, you'll have five tries for guessing which letters does the word has.")
+print("Tr1y to guess what the word is, you'll have five tries for guessing which letters does the word has.")
 print('There is so many letters in word:', count_letters)
 while tries < 5:
     letter = input('Type letter ')
