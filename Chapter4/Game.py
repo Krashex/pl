@@ -13,11 +13,11 @@ while tries < 5:
     if len(letter) > 1:
         print('You entered more than one symbol.Try to play fair!')
         continue
-    tries += 1
     if letter in word:
         print('Yes, this letter is in word.')
     else:
         print('No,there is no this letter in word.')
+    tries += 1
 
 guess = input('Now try to guess the word: ')
 if guess == word:
