@@ -51,6 +51,7 @@ while HINTS_COUNT != 0:
     else:
         print("Sorry, that's not it.")
         guess = input("Your guess: ")
+        break
 
 print("Thanks for playing.You have earned", points, "points")
 
