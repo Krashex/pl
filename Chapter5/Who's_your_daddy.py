@@ -1,7 +1,9 @@
-Dad = ['Petr', 'Denis']
-Son = ['Oleg', 'Artur']
-ans = input("Enter Son's name: ")
-for ans in Son:
-    position = Son.index(ans)
-    print(position)
+dad = ['Petr', 'Denis']
+son = [['Oleg', 'Artur']]
+answer = input("Enter Son's name: ")
+
+if answer in son[0]:
+    son[0].index(answer)
+    print(dad[0])
+
 input('Press enter')
