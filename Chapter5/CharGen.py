@@ -1,41 +1,48 @@
 pull = 30
-Agility = 5
-Strength = 5
-Health = 5
-Wisdom = 5
-while not pull < 0 or pull == 0:
-    Ans = input("Type skill to upgrade:'\n1 - Agility\n 2 - Health\n 3 - Strength\n 4 - Wisdom\n"
-                "Want to take back some points type UNDO + skill ")
-    number = int(input('Now type number of points you want to add or take back.'))
-    if number > pull:
-        print("Yoy can't add more than you have!")
-        continue
-    if Ans == "Agility":
-        Agility += number
-        pull -= number
-    if Ans == "Strength":
-        Strength += number
-        pull -= number
-    if Ans == "Health":
-        Health += number
-        pull -= number
-    if Ans == "Wisdom":
-        Wisdom += number
-        pull -= number
-    if Ans == "UNDO Agility":
-        pull += number
-        Agility -= number
-    if Ans == "UNDO Strength":
-        pull += number
-        Strength -= number
-    if Ans == "UNDO Health":
-        pull += number
-        Health -= number
-    if Ans == "UNDO Wisdom":
-        pull += number
-        Wisdom -= number
-    else:
-        print('Smth went wrong, check the grammar.')
-        continue
-    print("Ag.: ", Agility, "HP :", Health, "Str.: ", Strength, "Wis.: ", Wisdom, "Pull:", pull)
-input('Press Enter')
+char1 = 0
+char2 = 0
+char3 = 0
+char4 = 0
+skills = [char1, char2, char3, char4]
+while not pull < 0:
+    answer = int(input("""
+    Type 1 - if you want to add points
+    Type 2 - if you want to take points back
+    Type 3 - if you want to see stats
+    Type 4 - if you want to quit: """))
+    if answer == 4:
+        break
+    elif answer == 1:
+        points = int(input("Enter number of points you want to spend: "))
+        if points > pull or points == 0:
+            print("You cant add or remove more than you have!")
+            continue
+        choice = int(input("""
+        Type 1 - if you want to add points in Agility
+        Type 2 - if you want to add points in Health
+        Type 3 - if you want to add points in Strength
+        Type 4 - if you want to add points in Wisdom: """))
+        if choice in range(1, 5):
+            skills[choice - 1] += points
+            pull -= points
+        else:
+            print("There is no such an option...")
+    elif answer == 2:
+        points = int(input('Enter number of points you want to take back: '))
+        if pull + points > 30:
+            print('Impossible')
+            continue
+        choice = int(input("""
+        Type 1 - if you want to add points in Agility
+        Type 2 - if you want to add points in Health
+        Type 3 - if you want to add points in Strength
+        Type 4 - if you want to add points in Wisdom: """))
+        if choice in range(1, 5):
+            skills[choice - 1] -= points
+            pull += points
+        else:
+            print('There is no such an option...')
+    elif answer == 3:
+        print(skills, "You have this much", pull, " points")
+
+
