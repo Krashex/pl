@@ -17,22 +17,19 @@ while choice != 7:
         answer = input("Type son's name: ")
         if answer not in pairs:
             print('There is no such a name, if you want to add pair press 2')
-            continue
-        print(pairs[answer], 'is the', answer + "'s", 'father')
+        else:
+            print(pairs[answer], 'is the', answer + "'s", 'father')
     elif choice == 2:
         new_son = input("Type new son's name: ")
         new_father = input("Type new father's name: ")
         pairs[new_son] = new_father
-        continue
     elif choice == 3:
         print("Type son's name and you'll delete pair with this son")
         removed = input('Enter name: ')
         if removed in pairs:
             del pairs[removed]
-            continue
         else:
             print("There is no such a name...")
-            continue
     elif choice == 4:
         change = input("Type son's name in pair that you want to change: ")
         if change in pairs:
