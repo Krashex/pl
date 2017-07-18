@@ -3,7 +3,7 @@ import random
 MAX = 4
 
 
-def number():
+def generate_number():
     x = random.randint(1, MAX)
     return x
 
@@ -23,7 +23,7 @@ def start_game():
     count_try = 10
     guesses = 0
     while guesses < count_try:
-        correct = number()
+        correct = generate_number()
         answer = ask_number()
         if answer != correct:
             guesses += 1
