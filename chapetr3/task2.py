@@ -1,6 +1,5 @@
 import random
 
-A = None
 MAX = 4
 
 
@@ -21,23 +20,23 @@ def ask_number():
 
 
 def checking():
-    COUNT_TRY = 10
-    GUESSES = 0
-    while GUESSES < COUNT_TRY:
+    answer = None
+    count_try = 10
+    guesses = 0
+    while guesses < count_try:
         correct = number()
-        A = ask_number()
-        if A != correct:
-            GUESSES += 1
-        elif A == correct:
+        answer = ask_number()
+        if answer != correct:
+            guesses += 1
+        elif answer == correct:
             print('You won')
             break
-    if GUESSES == COUNT_TRY:
+    if guesses == count_try:
         print("you lost")
 
 
 def main():
     checking()
     input('нажмите Enter')
-
 
 main()
