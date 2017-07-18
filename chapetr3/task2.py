@@ -4,7 +4,6 @@ MAX = 4
 
 
 def number():
-    x = None
     x = random.randint(1, MAX)
     return x
 
@@ -19,7 +18,7 @@ def ask_number():
     return response
 
 
-def checking():
+def start_game():
     answer = None
     count_try = 10
     guesses = 0
@@ -36,7 +35,7 @@ def checking():
 
 
 def main():
-    checking()
+    start_game()
     input('нажмите Enter')
 
 main()
