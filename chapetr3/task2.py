@@ -1,17 +1,41 @@
 import random
 
-COUNT_TRY = 10
+MAX = 4
 
-guess = 0
-x = random.randint(1, 2)
-ans = -1
 
-while guess <COUNT_TRY or ans != x:
-    ans = int(input('Gues '))
-    if ans != x:
-        guess += 1
-else:
-    print("you lost")
+def number():
+    x = random.randint(1, MAX)
+    return x
 
-print('You won')
-input('нажмите Enter')
+
+def ask_number():
+    response = None
+    while response not in range(1, MAX, ):
+        response = int(input('Gues '))
+        if response not in range(1, MAX):
+            print('Incorrect number')
+
+    return response
+
+
+def start_game():
+    answer = None
+    count_try = 10
+    guesses = 0
+    while guesses < count_try:
+        correct = number()
+        answer = ask_number()
+        if answer != correct:
+            guesses += 1
+        elif answer == correct:
+            print('You won')
+            break
+    if guesses == count_try:
+        print("you lost")
+
+
+def main():
+    start_game()
+    input('нажмите Enter')
+
+main()
