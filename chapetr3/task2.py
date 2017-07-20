@@ -1,11 +1,11 @@
 import random
 
 MAX = 4
+COUNT_TRY = 10
 
 
 def generate_number():
-    x = random.randint(1, MAX)
-    return x
+    return random.randint(1, MAX)
 
 
 def ask_number():
@@ -19,23 +19,22 @@ def ask_number():
 
 
 def start_game():
-    answer = None
-    count_try = 10
     guesses = 0
-    while guesses < count_try:
+    while guesses < COUNT_TRY:
+        guesses += 1
         correct = generate_number()
         answer = ask_number()
-        if answer != correct:
-            guesses += 1
-        elif answer == correct:
+        if answer == correct:
             print('You won')
             break
-    if guesses == count_try:
+
+    if guesses == COUNT_TRY:
         print("you lost")
 
 
 def main():
     start_game()
     input('нажмите Enter')
+
 
 main()
